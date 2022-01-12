@@ -70,26 +70,30 @@ function saveData(event) {
         // get the element by the ID associated in HTML
         var savedData = document.getElementById(workData)
 
+        var timeslot = i + 9; 
         data = savedData.value;
-        localStorage.setItem("data", data);
+        localStorage.setItem("data" + timeslot, data);
     }
 
     console.log(data)
 }
 
 // data will be displayed next time page is shown
-// function renderSavedData() {
 
-//     var savedData = localStorage.getItem("data");
-//     workEventEl.textContent = savedData
-// }
-
-// renderSavedData()
 
 // need local storage to clear end of each day
-// function clearData (){
-//     if (time >= 18){
-//         localStorage.clear();
-//     }
-// }
-// clearData();
+function clearData (){
+    if (time > 18){
+        localStorage.clear();
+    }
+}
+clearData();
+
+// function saveData(event) {
+
+//     event.preventDefault();
+
+//     console.log(event.target) //which save button was clicked?
+//     console.log(event.target.id) //what's the id of the clicked save button?
+//of course you don't have id attributes on your save buttons as of now, but this is a possibility worth exploring.
+
