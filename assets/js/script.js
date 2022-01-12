@@ -1,4 +1,5 @@
 const date = moment();
+var workEventEl = $("#work-event")
 
 // when user lands on page
 // user sees current date in header and business hours for that day in rows of one hour each - 9am - 5pm
