@@ -63,6 +63,8 @@ function colorChange() {
 //checks every 10 minutes for time to see if color should change
 setInterval(colorChange, 1000 * 60 * 10)
 
+colorChange()
+
 // each row has a save button which will save content inside to local storage when clicked
 btnSave.on('click', saveData)
 
@@ -99,6 +101,7 @@ function saveData(event) {
 function clearData() {
     if (time > 18) {
         localStorage.clear();
+        $(timeChangeColor).addClass("past");
     }
 }
 
