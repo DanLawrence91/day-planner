@@ -24,3 +24,5 @@
 - Further pages could be added to this so you can go to a day in the future, or it can be edited so that if more pages are added, instead of clearing the data, this data is saved so that it can be recalled at a later date.
 
 - Color coding could also be added for items depending on what type of event it is - be it work, leisure etc.
+
+- More hours could be added to the planner so that it can incorporate the full day as opposed to just the work day

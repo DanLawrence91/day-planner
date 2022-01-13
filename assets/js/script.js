@@ -61,7 +61,7 @@ var colorTime = function colorChange() {
 }
 
 //checks every 10 minutes for time to see if color should change
-setInterval(colorTime(), (1000 * 60) * 10)
+setInterval(colorTime(), (1000 * 60 * 10))
 
 // each row has a save button which will save content inside to local storage when clicked
 btnSave.on('click', saveData)
