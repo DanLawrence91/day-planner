@@ -17,7 +17,7 @@
 - The day planner can be found at this [live site](https://danlawrence91.github.io/day-planner/) 
 
 - A screenshot of the planner with different colors for what hour of day it is and todays date is shown:
-![Screenshot of day planner showing todays date](./images/readme1.png)
+![Screenshot of day planner showing todays date](./assets/images/readme1.png)
 
 ## Future features
 
