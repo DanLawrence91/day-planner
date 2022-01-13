@@ -51,7 +51,7 @@ var colorTime = function colorChange() {
         // disable textarea if time has past
         if (workEventTime < time) {
             $(timeChangeColor).addClass("past");
-            //$(timeChangeColor).prop("disabled", true);
+            $(timeChangeColor).prop("disabled", true);
         } else if (workEventTime > time) {
             $(timeChangeColor).addClass("future");
         } else {
