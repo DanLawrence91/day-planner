@@ -23,6 +23,9 @@ function init() {
         savedData.textContent = renderedData
     }
 
+    //checks every 10 minutes for time to see if color should change
+    setInterval(colorChange, 300000)
+
 }
 
 // each hour is color coded depending on whether in past, present or future. color will change automatically depending on current time
@@ -60,10 +63,6 @@ function colorChange() {
     }
 }
 colorChange()
-//checks every 10 minutes for time to see if color should change
-setInterval(colorChange, 300000)
-
-
 
 // each row has a save button which will save content inside to local storage when clicked
 btnSave.on('click', saveData)
@@ -71,15 +70,6 @@ btnSave.on('click', saveData)
 function saveData(event) {
 
     event.preventDefault();
-
-    // function saveData(event) {
-
-    //     event.preventDefault();
-
-    //     console.log(event.target) //which save button was clicked?
-    //     console.log(event.target.id) //what's the id of the clicked save button?
-    //of course you don't have id attributes on your save buttons as of now, but this is a possibility worth exploring.
-
     for (var i = 0; i < workEventEl.length; i++) {
 
         var workData = workEventEl[i].id;
@@ -95,15 +85,17 @@ function saveData(event) {
 
 // data will be displayed next time page is shown
 
-
-
-// need local storage to clear end of each day
+// need local storage to clear end of each day or start of next
 function clearData() {
-    if (time > '18' || time < '09') {
-        localStorage.clear();
-        $(timeChangeColor).addClass("past");
+    var timeInt = Number(time)
+    if (timeInt > 17 || timeInt < 9) {
+        localStorage.clear()
+        workEventEl.textContent = ""
     }
+
+    console.log(timeInt)
+    console.log(typeof timeInt)
 }
-console.log(typeof time)
+// calls functions when page loaded
 init()
 clearData();
