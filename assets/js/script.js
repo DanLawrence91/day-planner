@@ -107,3 +107,4 @@ function clearData() {
 
 // calls function when page loaded
 init()
+clearData();
