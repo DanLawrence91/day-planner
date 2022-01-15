@@ -1,7 +1,7 @@
 var date = moment().format("dddd, MMMM Do");
 var btnSave = $(".saveBtn")
 var workEventEl = $(".work-event");
-var time = moment().format("HH");
+
 
 // when user lands on page
 // user sees current date in header and business hours for that day in rows of one hour each - 9am - 5pm
@@ -23,9 +23,8 @@ function init() {
         savedData.textContent = renderedData
     }
 
-    //checks every 10 minutes for time to see if color should change
-    setInterval(colorChange, 300000)
-
+    clearData();
+    colorChange();
 }
 
 // each hour is color coded depending on whether in past, present or future. color will change automatically depending on current time
@@ -33,7 +32,9 @@ function init() {
 
 function colorChange() {
 
+    console.log(moment().format())
     // check time working properly and right div is selected
+    var time = moment().format("HH");
     console.log(time);
     console.log(workEventEl);
 
@@ -62,7 +63,13 @@ function colorChange() {
         }
     }
 }
-colorChange()
+
+//checks every 5 minutes to refresh page to see if color and timeblock needs to change - not ideal solution
+// setInterval(function(){
+//     window.location.href = window.location
+// }, 300000)
+
+setInterval(colorChange, 300000)
 
 // each row has a save button which will save content inside to local storage when clicked
 btnSave.on('click', saveData)
@@ -87,6 +94,7 @@ function saveData(event) {
 
 // need local storage to clear end of each day or start of next
 function clearData() {
+    var time = moment().format("HH");
     var timeInt = Number(time)
     if (timeInt > 17 || timeInt < 9) {
         localStorage.clear()
@@ -96,6 +104,6 @@ function clearData() {
     console.log(timeInt)
     console.log(typeof timeInt)
 }
-// calls functions when page loaded
+
+// calls function when page loaded
 init()
-clearData();
